@@ -1,0 +1,2497 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('logos/fondo1.jpg') center top / cover fixed; /* Fondo en el body */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la ventana */
+}
+
+main {
+    flex-grow: 1; /* Permite que main ocupe todo el espacio disponible */
+    display: flex;
+    flex-direction: column; /* Asegura que las secciones se apilen verticalmente */
+    padding-bottom: 20px; /* Pequeño padding inferior para no tocar el footer */
+}
+
+/* Header y Navegación */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    height: 70px;
+}
+
+.logo h1 {
+    font-size: 1.3rem;
+    color: #E60012;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #E60012;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-toggle i {
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 0.5rem 0;
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f5f5f5;
+    color: #E60012;
+}
+
+/* Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        display: none;
+        padding-left: 1rem;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Sección Hero */
+#hero {
+    height: 100vh; /* Ocupa toda la altura del viewport */
+    width: 100%; /* Asegura que la sección hero ocupe el 100% del ancho del viewport */
+    position: relative; /* Cambiado a relative para que el video se posicione correctamente */
+    overflow: hidden;
+    display: flex; /* Añadido display flex de nuevo */
+    align-items: center; /* Añadido align-items center de nuevo */
+    justify-content: center; /* Añadido justify-content center de nuevo */
+    text-align: center;
+    color: white;
+    padding-top: 0; /* Esto se moverá al .hero-content */
+    background: transparent; /* Fondo transparente para que el video se vea */
+    z-index: 0; /* Asegura que #hero esté encima del video */
+}
+
+#hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que el video tome el 100% del ancho del padre */
+    height: 100%; /* Asegura que el video tome el 100% del alto del padre */
+    object-fit: cover;
+    object-position: center; /* Asegura que el centro del video siempre sea visible */
+    z-index: 1; /* Cambiado a 1 para estar delante del fondo del body */
+}
+
+/* Capa oscura sobre el video para legibilidad */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    z-index: 2; /* Añadido z-index para estar sobre el video */
+}
+
+.hero-content {
+    position: relative; /* Asegura que el contenido esté por encima del video y la capa oscura */
+    z-index: 3; /* Ajustado para estar sobre la capa oscura */
+    max-width: 800px; /* Limita el ancho del contenido */
+    padding-top: 102px; /* Añadir padding superior para compensar el header */
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background-color: #E60012;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background-color: #cc0000;
+    transform: translateY(-5px);
+}
+
+.cta-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive para Hero Section */
+@media (max-width: 768px) {
+    #hero {
+        padding-top: 60px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        padding: 1rem 2rem;
+    }
+}
+
+/* Sección Eslogan */
+#slogan-section {
+    background-color: transparent; /* No necesita fondo propio */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.slogan-content h2 {
+    font-size: 3.5rem;
+    color: white; /* Color blanco para el texto sobre el fondo oscuro del main */
+    margin-bottom: 0;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.slogan-container {
+    display: flex; /* Usar flexbox para colocar el texto y la imagen lado a lado */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+    gap: 3rem; /* Espacio entre el texto y la imagen */
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center; /* Centrar verticalmente los elementos */
+    justify-content: center; /* Centrar horizontalmente si hay espacio */
+}
+
+.slogan-text-content {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    padding: 2.5rem; /* Espaciado interno para el contenido de texto */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+.slogan-text-content h2 {
+    font-size: 3rem; /* Ajustar tamaño para que el H2 se vea bien sobre el nuevo fondo */
+    color: #E60012; /* Mantener el color de la marca para el título */
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: none; /* Eliminar sombra de texto si ya tiene fondo */
+}
+
+.slogan-text-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333; /* Color oscuro para el texto sobre el fondo blanco */
+    margin-bottom: 1.5rem;
+}
+
+.slogan-moto {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #333; /* Color oscuro para el eslogan sobre el fondo blanco */
+    font-weight: bold;
+}
+
+.slogan-image {
+    flex: 1; /* Permitir que la imagen ocupe el espacio disponible */
+    min-width: 300px; /* Ancho mínimo para la imagen */
+    text-align: center; /* Centrar la imagen dentro de su contenedor */
+}
+
+.slogan-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive para Sección Eslogan */
+@media (max-width: 768px) {
+    #slogan-section {
+        padding: 3rem 1rem;
+    }
+
+    .slogan-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slogan-text-content {
+        padding: 1.5rem; /* Reducir padding en móviles */
+        text-align: center; /* Centrar el texto en móviles */
+    }
+
+    .slogan-text-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .slogan-text-content p {
+        font-size: 1rem;
+    }
+
+    .slogan-moto {
+        font-size: 1.5rem;
+    }
+}
+
+/* Sección Vehículos */
+#vehiculos {
+    padding: 5rem 2rem;
+    background-color: transparent; /* Ahora el fondo general está en el main */
+    text-align: center;
+}
+
+#vehiculos h2 {
+    font-size: 3.5rem; /* Aumentar el tamaño de la fuente */
+    color: white; /* Cambiar a color blanco */
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Añadir una sombra sutil */
+}
+
+.vehiculos-grid {
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    max-width: 1200px;
+    margin: 0 auto 2rem auto; /* Ajuste el margen superior para el padding de la sección */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.vehiculo-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.vehiculo-card:hover {
+    transform: translateY(-5px);
+}
+
+.vehiculo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.vehiculo-card h3 {
+    padding: 1rem;
+    color: #333; /* Asegurar color oscuro */
+}
+
+.vehiculo-card p {
+    padding: 0 1rem;
+    color: #666; /* Asegurar color oscuro */
+}
+
+.ver-mas {
+    display: block;
+    width: 90%;
+    margin: 1rem auto;
+    padding: 0.8rem;
+    background-color: #E60012;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ver-mas:hover {
+    background-color: #cc0000;
+}
+
+/* Sección Servicios */
+#servicios {
+    padding: 5rem 2rem;
+    background-color: transparent; /* Ahora el fondo general está en el main */
+    text-align: center;
+    color: #333;
+}
+
+#servicios h2 {
+    font-size: 3.5rem; /* Aumentar el tamaño de la fuente */
+    color: white; /* Cambiar a color blanco */
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Añadir una sombra sutil */
+}
+
+.servicios-content-wrapper {
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.servicios-text-content {
+    flex: 1; /* Permitir que el contenido de texto ocupe el espacio disponible */
+    min-width: 300px; /* Ancho mínimo para el contenido de texto */
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.servicios-text-content h3 {
+    font-size: 2.2rem;
+    color: #E60012;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.servicios-text-content p,
+.servicios-text-content ul li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.servicios-text-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.servicios-text-content ul li {
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+.servicios-text-content ul li::before {
+    content: '\f058';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #E60012;
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+}
+
+.servicios-text-content .cta-button {
+    margin-top: 1.5rem;
+}
+
+.servicios-image {
+    flex: 1; /* Permitir que la imagen ocupe el espacio disponible */
+    min-width: 300px; /* Ancho mínimo para la imagen */
+    text-align: center;
+}
+
+.servicios-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive para Sección Servicios */
+@media (max-width: 768px) {
+    #servicios {
+        padding: 3rem 1rem;
+    }
+
+    .servicios-content-wrapper {
+        flex-direction: column; /* Apilar los elementos en pantallas pequeñas */
+        padding: 2rem;
+    }
+
+    .servicios-text-content {
+        text-align: center; /* Centrar el texto en móviles */
+    }
+
+    .servicios-text-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .servicios-text-content p,
+    .servicios-text-content ul li {
+        font-size: 1rem;
+    }
+}
+
+/* Sección Contacto */
+#contacto {
+    padding: 5rem 0; /* Espaciado ajustado para una mejor sección */
+ /* Fondo oscuro con imagen */
+    background-size: cover;
+    background-position: center;
+    text-align: center; /* Centrar el título de la sección */
+}
+
+#contacto h2 {
+    font-size: 3.5rem; /* Tamaño de fuente más grande para el título */
+    color: white; /* Color de texto blanco para contrastar con el fondo oscuro */
+    margin-bottom: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra de texto para mejor visibilidad */
+}
+
+.contacto-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    text-align: left; /* Asegurar que el contenido del formulario se alinee a la izquierda */
+}
+
+/* Estilos para los campos de entrada y textarea dentro del formulario de contacto */
+.contacto-container form input[type="text"],
+.contacto-container form input[type="email"],
+.contacto-container form input[type="tel"],
+.contacto-container form textarea {
+    width: calc(100% - 22px); /* Ajuste para padding y borde */
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+}
+
+.contacto-container form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contacto-container form input:focus,
+.contacto-container form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    background-color: #fff;
+}
+
+/* Estilos específicos para el botón de envío del formulario de contacto (rojo) */
+.contacto-container form button[type="submit"] {
+    width: 100%;
+    background-color: #E60012; /* Color rojo de cta-button */
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.contacto-container form button[type="submit"]:hover {
+    background-color: #cc0000; /* Rojo más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para efecto de elevación */
+}
+
+.contacto-container form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Adaptaciones responsivas para el formulario de contacto */
+@media (max-width: 768px) {
+    .contacto-container {
+        padding: 1.5rem;
+    }
+
+    #contacto h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #contacto h2 {
+        font-size: 1.8rem;
+    }
+    .contacto-container form input[type="text"],
+    .contacto-container form input[type="email"],
+    .contacto-container form input[type="tel"],
+    .contacto-container form textarea {
+        padding: 0.7rem;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #E60012;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .vehiculos-grid,
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos para la sección de Detalles del Vehículo */
+#vehicle-details {
+    padding: 5rem 2rem;
+    background-color: transparent;
+    text-align: center;
+    color: #333;
+}
+
+#vehicle-details .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#vehicle-details h2 {
+    font-size: 3.5rem;
+    color: #E60012;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.details-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+
+.details-content .image-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.details-content .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.details-content .info-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.details-content .info-container h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.details-content .info-container ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.details-content .info-container ul li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.details-content .info-container ul li::before {
+    content: '\f00c'; /* Icono de checkmark */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #E60012;
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+}
+
+.details-content .info-container .cta-button {
+    margin-top: 2rem;
+}
+
+/* Responsive para Detalles del Vehículo */
+@media (max-width: 768px) {
+    #vehicle-details .container {
+        padding: 2rem;
+    }
+
+    #vehicle-details h2 {
+        font-size: 2.5rem;
+    }
+
+    .details-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details-content .info-container {
+        text-align: center;
+    }
+
+    .details-content .info-container ul {
+        text-align: left; /* Mantener la lista alineada a la izquierda */
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Estilos para el formulario de Agendar Servicio */
+#agenda-servicio {
+    padding: 5rem 2rem;
+    background-color: transparent;
+    text-align: center;
+    color: #333;
+}
+
+#agenda-servicio .container {
+    max-width: 750px; /* Un poco más ancho */
+    margin: 0 auto;
+    background-color: #ffffff; /* Blanco sólido y puro */
+    padding: 4.5rem; /* Más padding */
+    border-radius: 25px; /* Bordes muy redondeados */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.18); /* Sombra muy pronunciada */
+    border: none;
+}
+
+#agenda-servicio h2 {
+    font-size: 3.5rem;
+    color: #E60012;
+    margin-bottom: 2.5rem; /* Más espacio */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#schedule-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Más espacio entre campos */
+    text-align: left;
+}
+
+#schedule-form .form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.7rem; /* Más margen */
+    color: #222; /* Más oscuro */
+    font-size: 1.1rem; /* Un poco más grande */
+}
+
+#schedule-form .form-group input[type="text"],
+#schedule-form .form-group input[type="email"],
+#schedule-form .form-group input[type="tel"],
+#schedule-form .form-group input[type="date"],
+#schedule-form .form-group input[type="time"],
+#schedule-form .form-group select,
+#schedule-form .form-group textarea {
+    width: 100%;
+    padding: 1.2rem; /* Más padding */
+    border: 1px solid #d0d0d0; /* Borde más visible */
+    border-radius: 12px; /* Más redondeado */
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #f7f7f7; /* Un gris más notorio */
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.08); /* Sombra interna más pronunciada */
+}
+
+#schedule-form .form-group input:focus,
+#schedule-form .form-group select:focus,
+#schedule-form .form-group textarea:focus {
+    border-color: #E60012; /* Color de marca al enfocar */
+    box-shadow: 0 0 0 5px rgba(230, 0, 18, 0.25), inset 0 1px 4px rgba(0,0,0,0.08); /* Anillo de enfoque y sombra interna */
+    outline: none;
+}
+
+#schedule-form .form-group input::placeholder,
+#schedule-form .form-group textarea::placeholder {
+    color: #777; /* Más oscuro y visible */
+    font-style: normal;
+}
+
+#schedule-form .form-group textarea {
+    resize: vertical;
+    min-height: 180px; /* Más alto */
+}
+
+#schedule-form .cta-button {
+    width: auto;
+    margin: 3rem auto 0 auto; /* Más margen superior */
+    padding: 1.5rem 4rem; /* Botón más grande */
+    font-size: 1.4rem; /* Fuente más grande */
+    border-radius: 60px; /* Más redondeado */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+#schedule-form .cta-button:hover {
+    background-color: #cc0000;
+    transform: translateY(-7px); /* Efecto de elevación más dramático */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+#schedule-form .cta-button:active {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+/* Responsive para el formulario de Agendar Servicio */
+@media (max-width: 768px) {
+    #agenda-servicio .container {
+        padding: 2rem;
+    }
+
+    #agenda-servicio h2 {
+        font-size: 2.8rem;
+    }
+
+    #schedule-form .form-group label {
+        font-size: 1rem;
+    }
+
+    #schedule-form .form-group input[type="text"],
+    #schedule-form .form-group input[type="email"],
+    #schedule-form .form-group input[type="tel"],
+    #schedule-form .form-group input[type="date"],
+    #schedule-form .form-group input[type="time"],
+    #schedule-form .form-group select,
+    #schedule-form .form-group textarea {
+        padding: 0.9rem;
+    }
+
+    #schedule-form .form-group textarea {
+        min-height: 120px;
+    }
+
+    #schedule-form .cta-button {
+        font-size: 1.2rem;
+        padding: 1.1rem 2.5rem;
+    }
+}
+
+/* Estilos para el formulario de Llantas y Rines */
+#llantas-rines-form {
+    padding: 5rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#llantas-rines-form .container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#llantas-rines-form h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+}
+
+.form-group textarea {
+    resize: vertical; /* Permitir redimensionar solo verticalmente */
+    min-height: 100px;
+}
+
+#llantas-rines-form .cta-button {
+    width: auto;
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem; /* Ajustar padding del botón si es necesario */
+}
+
+/* Responsive para el formulario de Llantas y Rines */
+@media (max-width: 768px) {
+    #llantas-rines-form .container {
+        padding: 2rem;
+    }
+
+    #llantas-rines-form h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Estilos para la sección de Llantas y Rines */
+#llantas-rines {
+    padding: 60px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('logos/fondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#llantas-rines h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.seccion-titulo {
+    text-align: center;
+    color: #fff;
+    font-size: 2em;
+    margin: 60px 0 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.seccion-titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #007bff, transparent);
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.producto-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 18px 14px 22px 14px;
+    transition: box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    display: block;
+    margin: 0 auto 16px auto;
+    background: #fff;
+}
+
+.producto-card h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+    min-height: 2.5em;
+}
+
+.producto-card .precio {
+    font-size: 1.6em;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.producto-card .cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto;
+}
+
+.producto-card .cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.producto-card .buy-options {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.producto-card .buy-dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 110%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+.producto-card .buy-options.active .buy-dropdown-menu {
+    display: block;
+}
+
+.producto-card .buy-dropdown-menu li a {
+    display: block;
+    padding: 12px 18px;
+    color: #222;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+.producto-card .buy-dropdown-menu li a:hover {
+    background: #f0f4f8;
+    color: #007bff;
+}
+
+.producto-card.active-dropdown-card {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+    z-index: 20;
+}
+
+/* Media Queries para Llantas y Rines */
+@media (max-width: 768px) {
+    .productos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 0 15px;
+    }
+
+    #llantas-rines h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .producto-card {
+        padding: 20px;
+    }
+
+    .producto-card img {
+        height: 180px;
+    }
+
+    .producto-card h3 {
+        font-size: 1.5em;
+    }
+
+    .producto-card .precio {
+        font-size: 1.4em;
+    }
+
+    .producto-card .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos para la sección de Accesorios y Autopartes */
+#accesorios-autopartes {
+    padding: 60px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('logos/fondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#accesorios-autopartes h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#accesorios-autopartes .seccion-titulo {
+    text-align: center;
+    color: #fff;
+    font-size: 2em;
+    margin: 60px 0 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#accesorios-autopartes .seccion-titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #007bff, transparent);
+}
+
+#accesorios-autopartes .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#accesorios-autopartes .producto-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 18px 14px 22px 14px;
+    transition: box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#accesorios-autopartes .producto-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+#accesorios-autopartes .producto-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    display: block;
+    margin: 0 auto 16px auto;
+    background: #fff;
+}
+
+#accesorios-autopartes .producto-card h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+    min-height: 2.5em;
+}
+
+#accesorios-autopartes .producto-card .precio {
+    font-size: 1.6em;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#accesorios-autopartes .producto-card .cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto;
+}
+
+#accesorios-autopartes .producto-card .cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#accesorios-autopartes .producto-card .buy-options {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#accesorios-autopartes .producto-card .buy-dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 110%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+#accesorios-autopartes .producto-card .buy-options.active .buy-dropdown-menu {
+    display: block;
+}
+
+#accesorios-autopartes .producto-card .buy-dropdown-menu li a {
+    display: block;
+    padding: 12px 18px;
+    color: #222;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+#accesorios-autopartes .producto-card .buy-dropdown-menu li a:hover {
+    background: #f0f4f8;
+    color: #007bff;
+}
+
+#accesorios-autopartes .producto-card.active-dropdown-card {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+    z-index: 20;
+}
+
+/* Media Queries para Accesorios y Autopartes */
+@media (max-width: 768px) {
+    #accesorios-autopartes .productos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 0 15px;
+    }
+
+    #accesorios-autopartes h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    #accesorios-autopartes .productos-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    #accesorios-autopartes .producto-card {
+        padding: 20px;
+    }
+
+    #accesorios-autopartes .producto-card img {
+        height: 180px;
+    }
+
+    #accesorios-autopartes .producto-card h3 {
+        font-size: 1.5em;
+    }
+
+    #accesorios-autopartes .producto-card .precio {
+        font-size: 1.4em;
+    }
+
+    #accesorios-autopartes .producto-card .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos para la sección de Peritaje */
+#peritaje {
+    padding: 100px 0 60px 0; /* Aumentar el padding superior */
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('logos/fondo1.jpg'); /* Fondo claro para visibilidad */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#peritaje .main-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+#peritaje .subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e44d26; /* Color rojo como en la imagen */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#peritaje .description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.peritaje-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.peritaje-card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 18px 14px 22px 14px;
+    transition: box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.peritaje-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+.peritaje-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    display: block;
+    margin: 0 auto 16px auto;
+    background: #fff;
+}
+
+.peritaje-card h3 {
+    font-size: 1.6em;
+    color: #007bff; /* Color azul para los títulos de combo */
+    margin-bottom: 10px;
+    min-height: 2.5em; /* Asegura espacio para el título */
+}
+
+.peritaje-card .precio {
+    font-size: 1.8em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.peritaje-card .add-to-cart-button {
+    display: inline-block;
+    background-color: #d9534f; /* Rojo oscuro como en la imagen */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+.peritaje-card .add-to-cart-button:hover {
+    background-color: #c9302c;
+}
+
+.peritaje-card .buy-options {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.peritaje-card .buy-dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 110%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+.peritaje-card .buy-options.active .buy-dropdown-menu {
+    display: block;
+}
+
+.peritaje-card .buy-dropdown-menu li a {
+    display: block;
+    padding: 12px 18px;
+    color: #222;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+.peritaje-card .buy-dropdown-menu li a:hover {
+    background: #f0f4f8;
+    color: #007bff;
+}
+
+.peritaje-card.active-dropdown-card {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+    z-index: 20;
+}
+
+/* Media Queries para Peritaje */
+@media (max-width: 768px) {
+    #peritaje .main-title {
+        font-size: 2.2em;
+    }
+
+    #peritaje .subtitle {
+        font-size: 1em;
+    }
+
+    #peritaje .description {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    .peritaje-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 0 15px;
+    }
+
+    .peritaje-card {
+        padding: 20px;
+    }
+
+    .peritaje-card img {
+        height: 180px;
+    }
+
+    .peritaje-card h3 {
+        font-size: 1.4em;
+    }
+
+    .peritaje-card .precio {
+        font-size: 1.6em;
+    }
+
+    .peritaje-card .add-to-cart-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .peritaje-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+}
+
+/* Estilos para la sección de Trámites */
+#tramites {
+    padding: 100px 0 60px 0; /* Ajustar padding superior */
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('logos/fondo1.jpg'); /* Fondo claro para visibilidad */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#tramites .main-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+#tramites .subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e44d26; /* Color rojo como en la imagen */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#tramites .description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.tramites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#tramites .tramite-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 18px 14px 22px 14px;
+    transition: box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#tramites .tramite-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+#tramites .tramite-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    display: block;
+    margin: 0 auto 16px auto;
+    background: #fff;
+}
+
+#tramites .tramite-card h3 {
+    font-size: 1.6em;
+    color: #007bff; /* Color azul para los títulos de trámite */
+    margin-bottom: 10px;
+    min-height: 2.5em; /* Asegura espacio para el título */
+}
+
+#tramites .tramite-card .precio {
+    font-size: 1.8em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#tramites .tramite-card .add-to-cart-button,
+#tramites .tramite-card .read-more-button {
+    display: inline-block;
+    background-color: #d9534f; /* Rojo oscuro para "Añadir al carrito" */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+#tramites .tramite-card .read-more-button {
+    background-color: #007bff; /* Azul para "Leer más" */
+}
+
+#tramites .tramite-card .add-to-cart-button:hover {
+    background-color: #c9302c;
+}
+
+#tramites .tramite-card .read-more-button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries para Trámites */
+@media (max-width: 768px) {
+    #tramites .main-title {
+        font-size: 2.2em;
+    }
+
+    #tramites .subtitle {
+        font-size: 1em;
+    }
+
+    #tramites .description {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    .tramites-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 0 15px;
+    }
+
+    #tramites .tramite-card {
+        padding: 20px;
+    }
+
+    #tramites .tramite-card img {
+        height: 180px;
+    }
+
+    #tramites .tramite-card h3 {
+        font-size: 1.4em;
+    }
+
+    #tramites .tramite-card .precio {
+        font-size: 1.6em;
+    }
+
+    #tramites .tramite-card .add-to-cart-button,
+    #tramites .tramite-card .read-more-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .tramites-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+}
+
+/* Estilos para la sección de Revisión Técnico Mecánica (Chat) */
+#chat-container {
+    max-width: 600px;
+    width: 90%;
+    margin: 150px auto 0 auto; /* Aumentar el margen superior para bajar el chat */
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Permitir que la altura se ajuste automáticamente */
+    overflow: hidden;
+    flex-grow: 1; /* Permitir que el chat container crezca dentro de main */
+    min-height: 60vh; /* Mantener un min-height para asegurar visibilidad inicial */
+}
+
+.chat-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+.chat-logo-container {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.chat-logo-container img {
+    max-width: 100px; /* Reducir el ancho máximo del logo */
+    height: auto;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #e5ddd5; /* Fondo de chat similar a WhatsApp */
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+}
+
+.message.received .message-avatar {
+    margin-right: 10px;
+}
+
+.message.sent {
+    justify-content: flex-end;
+}
+
+.message.sent .message-bubble {
+    background-color: #dcf8c6; /* Color para mensajes enviados */
+    color: #333;
+    border-radius: 10px 10px 0 10px;
+}
+
+.message.received .message-bubble {
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px 10px 10px 0;
+}
+
+.message-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.message-bubble {
+    padding: 10px 15px;
+    max-width: 75%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+.chat-input input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.chat-input button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries para Chat */
+@media (max-width: 768px) {
+    #chat-container {
+        width: 95%;
+        margin: 20px auto 0 auto; /* Ajustar margen para móviles */
+        height: auto;
+        min-height: 70vh;
+    }
+
+    .chat-header {
+        font-size: 1.3em;
+    }
+
+    .chat-logo-container img {
+        max-width: 120px;
+    }
+
+    .chat-messages {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .message-bubble {
+        max-width: 85%;
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .chat-input {
+        padding: 10px 15px;
+    }
+
+    .chat-input input {
+        padding: 8px 12px;
+    }
+
+    .chat-input button {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    #chat-container {
+        width: 98%;
+        margin: 15px auto 0 auto; /* Ajustar margen para móviles más pequeños */
+        height: auto;
+        min-height: 75vh;
+    }
+
+    .chat-header {
+        font-size: 1.2em;
+        padding: 12px 15px;
+    }
+
+    .chat-logo-container img {
+        max-width: 100px;
+    }
+
+    .chat-messages {
+        padding: 10px;
+    }
+
+    .message-avatar img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .message-bubble {
+        font-size: 0.85em;
+        padding: 7px 10px;
+    }
+
+    .chat-input {
+        padding: 10px;
+    }
+
+    .chat-input input {
+        font-size: 0.9em;
+        padding: 7px 10px;
+    }
+
+    .chat-input button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos para la sección de Historia Vehicular */
+#historia-vehicular {
+    padding: 80px 0 40px 0; /* Ajusta el padding superior */
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+#historia-vehicular .main-title {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+#historia-vehicular .main-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #a72323; /* Rojo distintivo de la marca */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+#historia-vehicular .subtitle {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#historia-vehicular .description {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+.historia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.historia-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.historia-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.historia-card img {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.historia-card h3 {
+    font-size: 1.5em;
+    color: #007bff; /* Color azul para los títulos */
+    margin: 10px 0;
+    padding: 0 15px;
+}
+
+.historia-card .precio {
+    font-size: 1.3em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.historia-card .add-to-cart-button {
+    background-color: #a72323; /* Rojo distintivo */
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.historia-card .add-to-cart-button:hover {
+    background-color: #8a1d1d;
+    transform: translateY(-2px);
+}
+
+/* Media Queries para Historia Vehicular */
+@media (max-width: 768px) {
+    #historia-vehicular .main-title {
+        font-size: 2em;
+    }
+
+    #historia-vehicular .subtitle {
+        font-size: 1.2em;
+    }
+
+    #historia-vehicular .description {
+        font-size: 1em;
+    }
+
+    .historia-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .historia-card {
+        margin-bottom: 20px; /* Espacio entre tarjetas en móvil */
+    }
+
+    .historia-card img {
+        height: 180px;
+    }
+
+    .historia-card h3 {
+        font-size: 1.3em;
+    }
+
+    .historia-card .precio {
+        font-size: 1.1em;
+    }
+
+    .historia-card .add-to-cart-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .historia-grid {
+        padding: 0 10px;
+    }
+}
+
+/* Estilos para la sección de Servicios Complementarios */
+#servicios-complementarios {
+    padding: 100px 0 60px 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('logos/fondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#servicios-complementarios h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+#servicios-complementarios .section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.servicio-card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 18px 14px 22px 14px;
+    transition: box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+.servicio-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    display: block;
+    margin: 0 auto 16px auto;
+    background: #fff;
+}
+
+.servicio-card h3 {
+    font-size: 1.6em;
+    color: #007bff;
+    margin-bottom: 10px;
+    min-height: 2.5em;
+}
+
+.servicio-card .precio {
+    font-size: 1.8em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.servicio-card .buy-options {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.servicio-card .buy-dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 110%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+.servicio-card .buy-options.active .buy-dropdown-menu {
+    display: block;
+}
+
+.servicio-card .buy-dropdown-menu li a {
+    display: block;
+    padding: 12px 18px;
+    color: #222;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+.servicio-card .buy-dropdown-menu li a:hover {
+    background: #f0f4f8;
+    color: #007bff;
+}
+
+.servicio-card.active-dropdown-card {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+    z-index: 20;
+}
+
+/* Media Queries para Servicios Complementarios */
+@media (max-width: 768px) {
+    #servicios-complementarios h2 {
+        font-size: 2em;
+    }
+
+    .servicios-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicios-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .servicio-card {
+        padding: 20px;
+    }
+
+    .servicio-card img {
+        height: 180px;
+    }
+
+    .servicio-card h3 {
+        font-size: 1.5em;
+    }
+
+    .servicio-card .precio {
+        font-size: 1.4em;
+    }
+
+    .servicio-card .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos para el breadcrumb */
+.breadcrumb {
+    text-align: left;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #007bff; /* Color azul para enlaces */
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    font-weight: bold;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    #servicios-complementarios h2 {
+        font-size: 2em;
+    }
+
+    #servicios-complementarios .section-description {
+        font-size: 1em;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .servicio-card img {
+        height: 180px;
+    }
+
+    .servicio-card h3 {
+        font-size: 1.3em;
+    }
+
+    .servicio-card .precio {
+        font-size: 1.1em;
+    }
+
+    .add-to-cart-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+#tramites .tramite-card .buy-options {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#tramites .tramite-card .buy-dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 110%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+#tramites .tramite-card .buy-options.active .buy-dropdown-menu {
+    display: block;
+}
+
+#tramites .tramite-card .buy-dropdown-menu li a {
+    display: block;
+    padding: 12px 18px;
+    color: #222;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+#tramites .tramite-card .buy-dropdown-menu li a:hover {
+    background: #f0f4f8;
+    color: #007bff;
+}
+
+#tramites .tramite-card.active-dropdown-card {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+    z-index: 20;
+}
+
+#tramites .tramite-card .buy-dropdown-menu li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.buy-options {
+    position: relative;
+    display: inline-block;
+}
+
+.buy-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e44d26;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-toggle:hover {
+    background-color: #c73e1d;
+}
+
+.buy-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+.buy-options:hover .buy-dropdown-menu {
+    display: block;
+}
+
+.buy-dropdown-menu li {
+    list-style: none;
+}
+
+.buy-dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.buy-dropdown-menu a:hover {
+    background-color: #f5f5f5;
+    color: #e44d26;
+}
+
+@media (max-width: 768px) {
+    .buy-dropdown-menu {
+        position: static;
+        box-shadow: none;
+        margin-top: 10px;
+    }
+
+    .buy-options:hover .buy-dropdown-menu {
+        display: none;
+    }
+
+    .buy-options.active .buy-dropdown-menu {
+        display: block;
+    }
+} 

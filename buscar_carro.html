@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AutoStar Premium - Encontrar un Carro</title>
+        <link rel="stylesheet" href="styles.css"> <!-- Mantener el CSS global para header/footer/etc. -->
+        <link rel="stylesheet" href="buscar_carro.css"> <!-- CSS específico para esta página -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logos/logo.png" alt="AutoStar Premium Logo">
+                <h1>AutoStar Premium</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://www.facilpass.co/persona/?utm_source=mathilde&utm_medium=cpc&utm_campaign=alianza_carroya_apt_interacciones_cpc&utm_term=sto&utm_content=display">Facilpass</a></li>
+                            <li><a href="llantas_rines.html">Llantas y Rines</a></li>
+                            <li><a href="accesorios_autopartes.html">Accesorios y Autopartes</a></li>
+                            <li><a href="peritaje.html">Peritaje</a></li>
+                            <li><a href="tramites.html">Trámites</a></li>
+                            <li><a href="revision_tecnico_mecanica.html">Revisión Técnico Mecánica</a></li>
+                            <li><a href="servicios_complementarios.html">Servicios Complementarios</a></li>
+                            <li><a href="historia_vehicular.html">Historia Vehicular</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Buscar <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buscar_carro.html">Encontrar un Carro</a></li>
+                            <li><a href="buscar_moto.html">Encontrar una Moto</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Financiar <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="simular_credito.html">Simular Crédito</a></li>
+                            <li><a href="compra_cartera.html">Compra de Cartera</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Vender <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="vender_carro.html">Vender mi Carro</a></li>
+                            <li><a href="vender_moto.html">Vender mi Moto</a></li>
+                            <li><a href="tasacion.html">Tasación Gratuita</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Seguros <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="soat.html">Compra tu SOAT</a></li>
+                            <li><a href="todo_riesgo.html">Compra tu Todo Riesgo</a></li>
+                            <li><a href="https://www.sura.co/seguros">Bicis y scooter</a></li>
+                            <li><a href="https://www.suraenlinea.com/viajes/sura?codigoAsesor=188170&utm_source=%20CARROYA%20%20&utm_medium=MENU-HEAD&utm_capaign=SURA_VIAJES">Seguros de viajes</a></li>
+                            <li><a href="https://segurosdigitales.segurosalfa.com.co/?campaign=e3746c5c57af9a027e1da15a3ccfb00de50fd654d52b9b4c728e1a230dccd314&segment=alfa&utm_source=website&utm_medium=popup&utm_campaign=accidentespersonalesmarabierto_alfaweb_trafico_na&utm_term=marabierto&utm_content=aptrexsuperior">Accidentes personales</a></li>
+                            <li><a href="vehiculos_pesados.html">Vehículos pesados</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Noticias <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="lo_nuevo.html">Lo nuevo</a></li>
+                            <li><a href="para_compradores.html">Para compradores</a></li>
+                            <li><a href="para_conductores.html">Para conductores</a></li>
+                            <li><a href="mas_leidas.html">Las más leídas</a></li>
+                            <li><a href="guias_digitales.html">Guías digitales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="tarjeta_credito.html">Tarjetas</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="buscar-carro">
+            <div class="container">
+                <h2 class="main-title">Encuentra tu Carro Ideal</h2>
+                <p class="section-description">Explora nuestra amplia selección de vehículos disponibles.</p>
+                
+                <div class="carros-grid">
+                    <!-- Ejemplo de tarjeta de carro. Se repetirán para cada carro. -->
+                    <div class="carro-card">
+                        <img src="imagenes carros/Toyota Prado 2024.jpg" alt="Toyota Prado 2024">
+                        <div class="car-details">
+                            <h3>Toyota Prado 2024</h3>
+                            <p class="price">L. 950,000</p>
+                            <p class="year">Año: 2024</p>
+                            <p class="matricula">Matrícula: HNM-7890</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Toyota Prado 2024" data-price="950000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Toyota Prado 2024" data-price="950000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carro-card">
+                        <img src="imagenes carros/Toyota Tacoma 2023.jpg" alt="Toyota Tacoma 2023">
+                        <div class="car-details">
+                            <h3>Toyota Tacoma 2023</h3>
+                            <p class="price">L. 880,000</p>
+                            <p class="year">Año: 2023</p>
+                            <p class="matricula">Matrícula: JKL-1234</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Toyota Tacoma 2023" data-price="880000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Toyota Tacoma 2023" data-price="880000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Toyota Hilux 2022.jpg" alt="Toyota Hilux 2022">
+                        <div class="car-details">
+                            <h3>Toyota Hilux 2022</h3>
+                            <p class="price">L. 720,000</p>
+                            <p class="year">Año: 2022</p>
+                            <p class="matricula">Matrícula: MNO-5678</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Toyota Hilux 2022" data-price="720000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Toyota Hilux 2022" data-price="720000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Honda Civic 2021.jpg" alt="Honda Civic 2021">
+                        <div class="car-details">
+                            <h3>Honda Civic 2021</h3>
+                            <p class="price">L. 450,000</p>
+                            <p class="year">Año: 2021</p>
+                            <p class="matricula">Matrícula: PQR-9012</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Honda Civic 2021" data-price="450000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Honda Civic 2021" data-price="450000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Ford F-150 2020.jpg" alt="Ford F-150 2020">
+                        <div class="car-details">
+                            <h3>Ford F-150 2020</h3>
+                            <p class="price">L. 780,000</p>
+                            <p class="year">Año: 2020</p>
+                            <p class="matricula">Matrícula: STU-3456</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Ford F-150 2020" data-price="780000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Ford F-150 2020" data-price="780000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Nissan Sentra 2022.jpg" alt="Nissan Sentra 2022">
+                        <div class="car-details">
+                            <h3>Nissan Sentra 2022</h3>
+                            <p class="price">L. 500,000</p>
+                            <p class="year">Año: 2022</p>
+                            <p class="matricula">Matrícula: VWX-7890</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Nissan Sentra 2022" data-price="500000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Nissan Sentra 2022" data-price="500000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nuevos carros agregados aquí -->
+                    <div class="carro-card">
+                        <img src="imagenes carros/Toyota Corolla 2023.jpg" alt="Toyota Corolla 2023">
+                        <div class="car-details">
+                            <h3>Toyota Corolla 2023</h3>
+                            <p class="price">L. 620,000</p>
+                            <p class="year">Año: 2023</p>
+                            <p class="matricula">Matrícula: ABC-1011</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Toyota Corolla 2023" data-price="620000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Toyota Corolla 2023" data-price="620000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Mazda CX-5 2021.jpg" alt="Mazda CX-5 2021">
+                        <div class="car-details">
+                            <h3>Mazda CX-5 2021</h3>
+                            <p class="price">L. 700,000</p>
+                            <p class="year">Año: 2021</p>
+                            <p class="matricula">Matrícula: DEF-2233</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Mazda CX-5 2021" data-price="700000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Mazda CX-5 2021" data-price="700000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Hyundai Elantra 2024.jpg" alt="Hyundai Elantra 2024">
+                        <div class="car-details">
+                            <h3>Hyundai Elantra 2024</h3>
+                            <p class="price">L. 580,000</p>
+                            <p class="year">Año: 2024</p>
+                            <p class="matricula">Matrícula: GHI-4455</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Hyundai Elantra 2024" data-price="580000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Hyundai Elantra 2024" data-price="580000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nuevos carros agregados aquí -->
+                    <div class="carro-card">
+                        <img src="imagenes carros/Kia Sportage 2023.jpg" alt="Kia Sportage 2023">
+                        <div class="car-details">
+                            <h3>Kia Sportage 2023</h3>
+                            <p class="price">L. 650,000</p>
+                            <p class="year">Año: 2023</p>
+                            <p class="matricula">Matrícula: JKL-6677</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Kia Sportage 2023" data-price="650000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Kia Sportage 2023" data-price="650000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Chevrolet Onix 2022.jpg" alt="Chevrolet Onix 2022">
+                        <div class="car-details">
+                            <h3>Chevrolet Onix 2022</h3>
+                            <p class="price">L. 420,000</p>
+                            <p class="year">Año: 2022</p>
+                            <p class="matricula">Matrícula: MNO-8899</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Chevrolet Onix 2022" data-price="420000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Chevrolet Onix 2022" data-price="420000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Volkswagen T-Cross 2023.jpg" alt="Volkswagen T-Cross 2023">
+                        <div class="car-details">
+                            <h3>Volkswagen T-Cross 2023</h3>
+                            <p class="price">L. 680,000</p>
+                            <p class="year">Año: 2023</p>
+                            <p class="matricula">Matrícula: PQR-0011</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Volkswagen T-Cross 2023" data-price="680000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Volkswagen T-Cross 2023" data-price="680000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Toyota Camry 2022.jpg" alt="Toyota Camry 2022">
+                        <div class="car-details">
+                            <h3>Toyota Camry 2022</h3>
+                            <p class="price">L. 750,000</p>
+                            <p class="year">Año: 2022</p>
+                            <p class="matricula">Matrícula: STU-2233</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Toyota Camry 2022" data-price="750000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Toyota Camry 2022" data-price="750000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Honda CR-V 2023.jpg" alt="Honda CR-V 2023">
+                        <div class="car-details">
+                            <h3>Honda CR-V 2023</h3>
+                            <p class="price">L. 820,000</p>
+                            <p class="year">Año: 2023</p>
+                            <p class="matricula">Matrícula: VWX-4455</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Honda CR-V 2023" data-price="820000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Honda CR-V 2023" data-price="820000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Ford Explorer 2022.jpg" alt="Ford Explorer 2022">
+                        <div class="car-details">
+                            <h3>Ford Explorer 2022</h3>
+                            <p class="price">L. 900,000</p>
+                            <p class="year">Año: 2022</p>
+                            <p class="matricula">Matrícula: YZ-6677</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Ford Explorer 2022" data-price="900000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Ford Explorer 2022" data-price="900000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Nissan Rogue 2023.jpg" alt="Nissan Rogue 2023">
+                        <div class="car-details">
+                            <h3>Nissan Rogue 2023</h3>
+                            <p class="price">L. 780,000</p>
+                            <p class="year">Año: 2023</p>
+                            <p class="matricula">Matrícula: ABC-8899</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Nissan Rogue 2023" data-price="780000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Nissan Rogue 2023" data-price="780000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Mazda CX-9 2023.jpg" alt="Mazda CX-9 2023">
+                        <div class="car-details">
+                            <h3>Mazda CX-9 2023</h3>
+                            <p class="price">L. 850,000</p>
+                            <p class="year">Año: 2023</p>
+                            <p class="matricula">Matrícula: DEF-0011</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Mazda CX-9 2023" data-price="850000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Mazda CX-9 2023" data-price="850000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Hyundai Tucson 2024.jpg" alt="Hyundai Tucson 2024">
+                        <div class="car-details">
+                            <h3>Hyundai Tucson 2024</h3>
+                            <p class="price">L. 720,000</p>
+                            <p class="year">Año: 2024</p>
+                            <p class="matricula">Matrícula: GHI-2233</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Hyundai Tucson 2024" data-price="720000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Hyundai Tucson 2024" data-price="720000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Kia Sorento 2023.jpg" alt="Kia Sorento 2023">
+                        <div class="car-details">
+                            <h3>Kia Sorento 2023</h3>
+                            <p class="price">L. 780,000</p>
+                            <p class="year">Año: 2023</p>
+                            <p class="matricula">Matrícula: JKL-4455</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Kia Sorento 2023" data-price="780000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Kia Sorento 2023" data-price="780000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carro-card">
+                        <img src="imagenes carros/Toyota Highlander 2024.jpg" alt="Toyota Highlander 2024">
+                        <div class="car-details">
+                            <h3>Toyota Highlander 2024</h3>
+                            <p class="price">L. 950,000</p>
+                            <p class="year">Año: 2024</p>
+                            <p class="matricula">Matrícula: MNO-6677</p>
+                            <p class="mileage">Kilometraje: 0 km</p>
+                            <div class="buy-options">
+                                <button class="cta-button buy-toggle">Comprar <i class="fas fa-chevron-down"></i></button>
+                                <ul class="buy-dropdown-menu">
+                                    <li><a href="#" class="simulate-credit" data-name="Toyota Highlander 2024" data-price="950000">Simular Crédito</a></li>
+                                    <li><a href="#" class="buy-cash" data-name="Toyota Highlander 2024" data-price="950000">Compra por Cartera</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AutoStar Premium</h3>
+                <p>Tu destino para vehículos Toyota de calidad</p>
+                <p>No lo maneje, Maltratelo</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: autolote@autolostarpremium.com</p>
+                <p>Tel: (504) 9962-0194</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AutoStar Premium. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="buscar_carro.js"></script>
+</body>
+</html> 

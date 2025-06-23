@@ -1,0 +1,666 @@
+main {
+    padding-top: 100px; /* Ajusta esto según la altura de tu encabezado fijo */
+    background-color: #e9ecef; /* Un color de fondo suave para la sección */
+}
+
+#simulador-credito {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff); /* Fondo degradado suave para la sección */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave para la sección principal */
+}
+
+#simulador-credito .main-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+#simulador-credito .main-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #007bff, #00bcd4);
+    border-radius: 2px;
+}
+
+#simulador-credito .section-description {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.simulador-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem; /* Reducir el espacio entre las columnas */
+    margin-top: 2rem;
+    padding: 0 1rem;
+    align-items: flex-start; /* Alinea los elementos al inicio */
+}
+
+.carrito-productos-card, .formulario-credito-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12); /* Sombra ligeramente más pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrito-productos-card:hover, .formulario-credito-card:hover {
+    transform: translateY(-7px); /* Efecto de hover más notorio */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+}
+
+.carrito-productos-card h3, .formulario-credito-card h3 {
+    color: #343a40;
+    margin-bottom: 1.8rem; /* Espaciado más consistente */
+    font-size: 1.9rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.6rem;
+}
+
+.carrito-productos-card h3::after, .formulario-credito-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #007bff, #00bcd4); /* Degradado para el subrayado del título */
+    border-radius: 1.5px;
+}
+
+#lista-productos {
+    margin-bottom: 1.8rem; /* Reducir el margen inferior */
+    max-height: 320px; /* Aumentar ligeramente la altura máxima */
+    overflow-y: auto;
+    padding-right: 1.2rem;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+}
+
+#lista-productos::-webkit-scrollbar {
+    width: 10px; /* Scrollbar más ancho */
+}
+
+#lista-productos::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+#lista-productos::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.producto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.producto-item span {
+    font-size: 1.05rem;
+    color: #495057;
+    flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
+}
+
+.producto-item:hover {
+    background-color: #e9ecef;
+}
+
+.producto-item:last-child {
+    border-bottom: none;
+}
+
+.eliminar-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 0.6rem; /* Aumentar el padding del botón */
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.eliminar-btn:hover {
+    transform: scale(1.15); /* Efecto de escala más pronunciado */
+    color: #c82333;
+}
+
+.totales-resumen {
+    margin-top: 2.2rem; /* Aumentar el margen superior */
+    padding-top: 1.8rem;
+    border-top: 2px solid #e9ecef;
+    background: #f8f9fa;
+    padding: 1.8rem; /* Aumentar el padding */
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.03); /* Sombra interna suave */
+}
+
+.totales-resumen p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.9rem 0; /* Aumentar el margen entre líneas */
+    font-size: 1.15rem;
+    color: #343a40;
+}
+
+.totales-resumen p:last-child {
+    font-weight: bold;
+    font-size: 1.4rem; /* Aumentar el tamaño del total final */
+    color: #007bff;
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #ced4da;
+}
+
+.form-group {
+    margin-bottom: 1.8rem; /* Ajustar el margen inferior */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.7rem; /* Reducir el margen inferior */
+    color: #343a40;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1.1rem; /* Aumentar el padding */
+    border: 1px solid #ced4da; /* Borde más sutil */
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0,123,255,0.15); /* Sombra de foco más prominente */
+}
+
+.form-group input[readonly] {
+    background-color: #f1f3f5;
+    cursor: not-allowed;
+    border-color: #e2e6ea;
+}
+
+.resultados-credito {
+    background: linear-gradient(135deg, #e0f2f7 0%, #d4ebf2 100%); /* Degradado de fondo más claro */
+    padding: 2.2rem; /* Aumentar el padding */
+    border-radius: 12px;
+    margin: 2.5rem 0;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07); /* Sombra más suave */
+}
+
+.resultados-credito h4 {
+    color: #0056b3; /* Color azul más oscuro para el título */
+    margin-bottom: 1.8rem; /* Ajustar el margen inferior */
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.resultados-credito p {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0; /* Aumentar el margen entre líneas */
+    font-size: 1.15rem;
+    color: #343a40;
+}
+
+.resultados-credito .total-pagar {
+    font-weight: bold;
+    font-size: 1.45rem; /* Aumentar el tamaño del total a pagar */
+    color: #dc3545; /* Rojo para el total a pagar */
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e9ecef;
+}
+
+/* Botones de acción */
+.cta-button {
+    display: block;
+    width: 100%;
+    padding: 1.2rem; /* Aumentar el padding */
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px; /* Bordes más redondeados */
+    background-color: #28a745; /* Verde para el botón de calcular */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 2.5rem; /* Aumentar el margen superior */
+}
+
+.cta-button:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de elevación más pronunciado */
+    box-shadow: 0 8px 20px rgba(40,167,69,0.2);
+}
+
+#generar-factura {
+    background-color: #007bff; /* Azul para el botón de generar factura */
+    margin-top: 1.2rem; /* Ajustar el margen superior entre botones */
+}
+
+#generar-factura:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    box-shadow: 0 8px 20px rgba(0,123,255,0.2);
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 992px) {
+    .simulador-content {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas medianas */
+        gap: 2rem;
+    }
+
+    #simulador-credito {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .carrito-productos-card, .formulario-credito-card {
+        padding: 2rem;
+    }
+
+    #simulador-credito .main-title {
+        font-size: 2.2rem;
+    }
+
+    .carrito-productos-card h3, .formulario-credito-card h3 {
+        font-size: 1.7rem;
+    }
+
+    .producto-item,
+    .totales-resumen p,
+    .form-group label,
+    .form-group input,
+    .form-group select,
+    .resultados-credito p,
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.9rem;
+    }
+
+    .resultados-credito h4 {
+        font-size: 1.4rem;
+    }
+
+    .totales-resumen p:last-child,
+    .resultados-credito .total-pagar {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #simulador-credito .main-title {
+        font-size: 2rem;
+    }
+
+    #simulador-credito .section-description {
+        font-size: 1rem;
+    }
+
+    .carrito-productos-card, .formulario-credito-card {
+        padding: 1.8rem;
+    }
+
+    .carrito-productos-card h3, .formulario-credito-card h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #simulador-credito {
+        padding: 1.5rem 1rem;
+    }
+
+    #simulador-credito .main-title {
+        font-size: 1.6rem;
+    }
+
+    .carrito-productos-card, .formulario-credito-card {
+        padding: 1.2rem;
+    }
+
+    .carrito-productos-card h3, .formulario-credito-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .producto-item,
+    .totales-resumen p,
+    .form-group label,
+    .form-group input,
+    .form-group select,
+    .resultados-credito p,
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+
+    .resultados-credito h4 {
+        font-size: 1.1rem;
+    }
+
+    .totales-resumen p:last-child,
+    .resultados-credito .total-pagar {
+        font-size: 1.1rem;
+    }
+}
+
+.factura-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1000px;
+    position: relative;
+    overflow: hidden;
+}
+
+.factura-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, #e44d26, #f16529);
+}
+
+.factura-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #e44d26;
+    position: relative;
+}
+
+.factura-logo {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.factura-info {
+    flex: 1;
+}
+
+.factura-info h3 {
+    color: #333;
+    margin: 0 0 15px;
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.factura-fecha, .factura-numero {
+    color: #666;
+    margin: 8px 0;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.factura-fecha i, .factura-numero i {
+    color: #e44d26;
+}
+
+.factura-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.factura-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.factura-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.factura-item .label {
+    font-weight: 600;
+    color: #444;
+    font-size: 1.1em;
+}
+
+.factura-item .value {
+    color: #333;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.factura-item.total {
+    background: linear-gradient(135deg, #e44d26, #f16529);
+    color: white;
+    margin-top: 20px;
+    padding: 20px;
+    border: none;
+}
+
+.factura-item.total .label,
+.factura-item.total .value {
+    color: white;
+    font-size: 1.2em;
+}
+
+.factura-cliente,
+.factura-productos,
+.factura-detalles-credito,
+.factura-totales {
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.factura-cliente h4,
+.factura-productos h4,
+.factura-detalles-credito h4 {
+    color: #e44d26;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #e44d26;
+    padding-bottom: 10px;
+}
+
+#factura-lista-productos {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.factura-footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #e44d26;
+    text-align: center;
+}
+
+.factura-footer p {
+    color: #666;
+    margin: 8px 0;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.factura-firmas {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    padding: 30px 0;
+}
+
+.factura-firmas .firma-item {
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.linea-firma {
+    width: 250px;
+    height: 2px;
+    background: #333;
+    margin: 15px auto;
+    position: relative;
+}
+
+.linea-firma::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.factura-acciones {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.factura-acciones .cta-button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.factura-acciones .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(228, 77, 38, 0.2);
+}
+
+@media print {
+    .factura-container {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .factura-container::before {
+        display: none;
+    }
+
+    .factura-acciones {
+        display: none;
+    }
+
+    .factura-header {
+        border-bottom-color: #000;
+    }
+
+    .factura-item {
+        background: none;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+    .factura-item.total {
+        background: none;
+        color: #000;
+        border-bottom: 2px solid #000;
+    }
+
+    .factura-item.total .label,
+    .factura-item.total .value {
+        color: #000;
+    }
+
+    .factura-cliente,
+    .factura-productos,
+    .factura-detalles-credito,
+    .factura-totales {
+        box-shadow: none;
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .factura-container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .factura-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .factura-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .factura-firmas {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .factura-acciones {
+        flex-direction: column;
+    }
+
+    .factura-acciones .cta-button {
+        width: 100%;
+    }
+} 

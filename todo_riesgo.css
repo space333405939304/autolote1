@@ -1,0 +1,404 @@
+.todo-riesgo-section {
+    padding: 120px 20px 60px;
+    background-color: #f0f2f5; /* Un fondo gris claro para la sección */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.todo-riesgo-container {
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    padding: 40px;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.emoji {
+    font-size: 1.8rem;
+}
+
+.protection-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.protection-text strong {
+    color: #E60012;
+}
+
+.steps-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    position: relative;
+    padding: 0 20px; /* Espacio para las líneas que se extienden */
+}
+
+.steps-indicator .line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #ccc;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    z-index: 0;
+}
+
+.steps-indicator .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 20%; /* Para asegurar que quepan 5 pasos */
+}
+
+.steps-indicator .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.steps-indicator .step.active .circle {
+    background-color: #3498db;
+}
+
+.steps-indicator .step p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.3;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #34495e;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.identificacion-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.identificacion-input-group select {
+    flex: 0.3;
+}
+
+.identificacion-input-group input {
+    flex: 0.7;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    text-align: left;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 5px;
+    transform: scale(1.1);
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.checkbox-group a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+.cotizar-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.cotizar-button:hover {
+    background-color: #2980b9;
+}
+
+.no-plate-link {
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.no-plate-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.no-plate-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .todo-riesgo-container {
+        padding: 30px;
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .protection-text {
+        font-size: 1rem;
+    }
+
+    .steps-indicator {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .steps-indicator .step {
+        flex-basis: 45%; /* Dos columnas en pantallas más pequeñas */
+        margin-bottom: 20px;
+    }
+
+    .steps-indicator .line {
+        display: none; /* Oculta la línea entre los pasos en dispositivos pequeños */
+    }
+}
+
+@media (max-width: 480px) {
+    .todo-riesgo-container {
+        padding: 20px;
+    }
+
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .intro-text {
+        font-size: 0.95rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .checkbox-group label {
+        font-size: 0.85rem;
+    }
+
+    .cotizar-button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 550px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header i {
+    font-size: 3rem;
+    color: #f39c12; /* Color de advertencia */
+    margin-bottom: 10px;
+}
+
+.modal-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.modal-content p strong {
+    color: #E60012;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.outlined-btn {
+    background-color: transparent;
+    border: 2px solid #ccc;
+    color: #555;
+}
+
+.outlined-btn:hover {
+    border-color: #999;
+    color: #333;
+}
+
+.filled-btn {
+    background-color: #E60012; /* Color principal de la marca */
+    color: white;
+    border: 2px solid #E60012;
+}
+
+.filled-btn:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+}
+
+/* Responsive for Modal */
+@media (max-width: 576px) {
+    .modal-content {
+        padding: 25px;
+    }
+
+    .modal-header i {
+        font-size: 2.5rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .modal-btn {
+        width: 100%;
+    }
+} 

@@ -1,0 +1,373 @@
+/* Estilos para la sección de Búsqueda de Carros */
+#buscar-carro {
+    padding: 60px 20px; /* Espaciado superior e inferior, ajustado para el header fijo */
+    text-align: center;
+    background-color: #f8f8f8; /* Un fondo claro para la sección */
+}
+
+#buscar-carro .main-title {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#buscar-carro .section-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.carros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carro-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 18px 14px 22px 14px;
+    transition: box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carro-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+.carro-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    display: block;
+    margin: 0 auto 16px auto;
+    background: #fff;
+}
+
+.carro-card h3 {
+    font-size: 1.6rem;
+    color: #E60012;
+    margin: 15px 20px 10px;
+}
+
+.carro-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 20px 8px;
+    line-height: 1.4;
+}
+
+.carro-card .precio {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #E60012;
+    margin: 15px 20px 20px;
+}
+
+.carro-card .cta-button.comprar-button {
+    display: block;
+    width: calc(100% - 40px); /* Ocupa el ancho completo menos el padding */
+    margin: 0 20px 20px; /* Centrado y espacio inferior */
+    padding: 12px 0;
+    font-size: 1.05rem;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #007bff; /* Un color diferente para el botón de comprar */
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none; /* Asegura que no haya borde predeterminado de botón */
+    cursor: pointer;
+}
+
+.carro-card .cta-button.comprar-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.buy-options {
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.buy-toggle {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.buy-toggle:hover {
+    background-color: #0056b3;
+}
+
+.buy-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    list-style: none !important;
+    list-style-type: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    box-sizing: border-box;
+}
+
+.buy-dropdown-menu li {
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+    box-sizing: border-box;
+    height: auto;
+    line-height: normal;
+}
+
+.buy-dropdown-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.buy-dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.buy-dropdown-menu a:hover {
+    background-color: #f5f5f5;
+}
+
+.buy-options.active .buy-dropdown-menu {
+    display: block;
+}
+
+.carro-card.active-dropdown-card {
+    z-index: 1001;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    #buscar-carro {
+        padding: 40px 15px;
+    }
+
+    #buscar-carro .main-title {
+        font-size: 2.2rem;
+    }
+
+    .carros-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .carro-card img {
+        height: 180px;
+    }
+
+    .carro-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .carro-card p {
+        font-size: 0.9rem;
+    }
+
+    .carro-card .precio {
+        font-size: 1.1rem;
+    }
+
+    .carro-card .cta-button.comprar-button {
+        font-size: 0.95rem;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #buscar-carro .main-title {
+        font-size: 1.8rem;
+    }
+
+    #buscar-carro .section-description {
+        font-size: 0.9rem;
+    }
+}
+
+.car-details {
+    padding: 15px;
+}
+
+.car-details h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.car-details p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.car-details .price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+.car-details .year,
+.car-details .matricula,
+.car-details .mileage {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+main {
+    background-image: url('imagenes carros/Toyota Corolla 2023.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    flex: 1;
+    position: relative;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+#buscar-carro {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 1rem;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    margin: 0.5rem 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin: 1rem 0;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+} 

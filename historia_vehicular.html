@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Vehicular - Autolote</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="historia_vehicular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logos/logo.png" alt="Autolote Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="buscar_carro.html">Vehículos</a></li>
+                <li><a href="servicios_complementarios.html">Servicios</a></li>
+                <li><a href="historia_vehicular.html">Historia Vehicular</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="historia-vehicular">
+        <h1 class="main-title">Historia Vehicular</h1>
+        <h2 class="subtitle">Información detallada de tu vehículo</h2>
+        <p class="description">
+            Obtén un informe completo sobre la historia de cualquier vehículo. 
+            Conoce su historial de propietarios, accidentes, mantenimientos y más.
+        </p>
+
+        <div class="historia-form-container">
+            <form id="historiaForm" action="https://formsubmit.co/mauriciocardona402@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Nueva solicitud de Historia Vehicular">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <div class="form-section">
+                    <h3>Información del Vehículo</h3>
+                    <div class="form-group">
+                        <label for="placa">Placa del Vehículo</label>
+                        <input type="text" id="placa" name="placa" required 
+                               placeholder="Ej: ABC-123">
+                        <small>Ingresa la placa del vehículo que deseas consultar</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipoVehiculo">Tipo de Vehículo</label>
+                        <select id="tipoVehiculo" name="tipoVehiculo" required>
+                            <option value="">Seleccione un tipo</option>
+                            <option value="automovil">Automóvil</option>
+                            <option value="camioneta">Camioneta</option>
+                            <option value="camion">Camión</option>
+                            <option value="motocicleta">Motocicleta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Información del Cliente</h3>
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Tipo de Informe</h3>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="historialPropietarios" name="tipoInforme" value="propietarios">
+                        <label for="historialPropietarios">Historial de Propietarios</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="historialAccidentes" name="tipoInforme" value="accidentes">
+                        <label for="historialAccidentes">Historial de Accidentes</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="historialMantenimientos" name="tipoInforme" value="mantenimientos">
+                        <label for="historialMantenimientos">Historial de Mantenimientos</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="informeCompleto" name="tipoInforme" value="completo">
+                        <label for="informeCompleto">Informe Completo</label>
+                    </div>
+                </div>
+
+                <div class="price-summary">
+                    <h4>Resumen de Precios</h4>
+                    <div class="price-item">
+                        <span>Historial de Propietarios</span>
+                        <span>LPS 500</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Historial de Accidentes</span>
+                        <span>LPS 500</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Historial de Mantenimientos</span>
+                        <span>LPS 500</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Informe Completo</span>
+                        <span>LPS 1,200</span>
+                    </div>
+                    <div class="price-total">
+                        <span>Total</span>
+                        <span id="totalPrice">LPS 0</span>
+                    </div>
+                </div>
+
+                <button type="button" id="submitButton" class="submit-button">Solicitar Informe</button>
+            </form>
+
+            <div id="ticket" class="ticket-container" style="display: none;">
+                <div class="ticket-header">
+                    <img src="logos/logo.png" alt="Logo Autolote" class="ticket-logo">
+                    <h3>Ticket de Solicitud</h3>
+                    <p class="ticket-date"></p>
+                </div>
+                <div class="ticket-body">
+                    <div class="ticket-section">
+                        <h4>Información del Vehículo</h4>
+                        <p><strong>Placa:</strong> <span id="ticket-placa"></span></p>
+                        <p><strong>Tipo:</strong> <span id="ticket-tipo"></span></p>
+                    </div>
+                    <div class="ticket-section">
+                        <h4>Información del Cliente</h4>
+                        <p><strong>Nombre:</strong> <span id="ticket-nombre"></span></p>
+                        <p><strong>Email:</strong> <span id="ticket-email"></span></p>
+                        <p><strong>Teléfono:</strong> <span id="ticket-telefono"></span></p>
+                    </div>
+                    <div class="ticket-section">
+                        <h4>Servicios Seleccionados</h4>
+                        <ul id="ticket-servicios"></ul>
+                    </div>
+                    <div class="ticket-section">
+                        <h4>Total a Pagar</h4>
+                        <p class="ticket-total" id="ticket-total"></p>
+                    </div>
+                </div>
+                <div class="ticket-footer">
+                    <p>Número de Ticket: <span id="ticket-number"></span></p>
+                    <p>Gracias por su preferencia</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +504 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> info@autolote.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Tegucigalpa, Honduras</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="vehiculos.html">Vehículos</a></li>
+                    <li><a href="servicios_complementarios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Autolote. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const totalPriceElement = document.getElementById('totalPrice');
+            const form = document.getElementById('historiaForm');
+            const ticket = document.getElementById('ticket');
+            const submitButton = document.getElementById('submitButton');
+            
+            function updateTotal() {
+                let total = 0;
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        switch(checkbox.value) {
+                            case 'propietarios':
+                            case 'accidentes':
+                            case 'mantenimientos':
+                                total += 500;
+                                break;
+                            case 'completo':
+                                total += 1200;
+                                break;
+                        }
+                    }
+                });
+                totalPriceElement.textContent = `LPS ${total.toLocaleString()}`;
+                return total;
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.value === 'completo' && this.checked) {
+                        checkboxes.forEach(cb => {
+                            if (cb !== this) cb.checked = false;
+                        });
+                    } else if (this.checked) {
+                        document.getElementById('informeCompleto').checked = false;
+                    }
+                    updateTotal();
+                });
+            });
+
+            function generateTicketNumber() {
+                const date = new Date();
+                const year = date.getFullYear().toString().slice(-2);
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const day = date.getDate().toString().padStart(2, '0');
+                const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                return `HV-${year}${month}${day}-${random}`;
+            }
+
+            function formatDate() {
+                const date = new Date();
+                return date.toLocaleDateString('es-HN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+
+            function showTicket() {
+                // Actualizar el ticket
+                document.getElementById('ticket-placa').textContent = document.getElementById('placa').value;
+                document.getElementById('ticket-tipo').textContent = document.getElementById('tipoVehiculo').options[document.getElementById('tipoVehiculo').selectedIndex].text;
+                document.getElementById('ticket-nombre').textContent = document.getElementById('nombre').value;
+                document.getElementById('ticket-email').textContent = document.getElementById('email').value;
+                document.getElementById('ticket-telefono').textContent = document.getElementById('telefono').value;
+                
+                const serviciosList = document.getElementById('ticket-servicios');
+                serviciosList.innerHTML = '';
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        const li = document.createElement('li');
+                        li.textContent = checkbox.nextElementSibling.textContent;
+                        serviciosList.appendChild(li);
+                    }
+                });
+
+                document.getElementById('ticket-total').textContent = `LPS ${updateTotal().toLocaleString()}`;
+                document.getElementById('ticket-number').textContent = generateTicketNumber();
+                document.querySelector('.ticket-date').textContent = formatDate();
+
+                // Ocultar el formulario y mostrar el ticket
+                form.style.display = 'none';
+                ticket.style.display = 'block';
+
+                // Agregar botón para enviar el formulario
+                const sendButton = document.createElement('button');
+                sendButton.className = 'submit-button';
+                sendButton.textContent = 'Enviar Solicitud';
+                sendButton.style.marginTop = '20px';
+                sendButton.onclick = function() {
+                    form.submit();
+                };
+                ticket.appendChild(sendButton);
+            }
+
+            submitButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (form.checkValidity()) {
+                    showTicket();
+                } else {
+                    form.reportValidity();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

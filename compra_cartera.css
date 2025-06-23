@@ -1,0 +1,263 @@
+main {
+    padding-top: 80px; /* Ajusta esto según la altura de tu encabezado */
+}
+
+#compra-cartera {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+#compra-cartera h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+#compra-cartera h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #007bff, #00bcd4);
+}
+
+.compra-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+.productos-seleccionados, .formulario-compra {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.productos-seleccionados:hover, .formulario-compra:hover {
+    transform: translateY(-5px);
+}
+
+.productos-seleccionados h3, .formulario-compra h3 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.productos-seleccionados h3::after, .formulario-compra h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #007bff;
+}
+
+#lista-productos {
+    margin-bottom: 2rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+#lista-productos::-webkit-scrollbar {
+    width: 8px;
+}
+
+#lista-productos::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#lista-productos::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
+}
+
+.producto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.producto-item:hover {
+    background-color: #f8f9fa;
+}
+
+.producto-item:last-child {
+    border-bottom: none;
+}
+
+.eliminar-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.eliminar-btn:hover {
+    transform: scale(1.1);
+}
+
+.total-container {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #eee;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.total-container p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.total-container p:last-child {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #007bff;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dee2e6;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+.form-group input[readonly] {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.resultados {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.resultados h4 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.resultados p {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.cta-button {
+    width: 100%;
+    padding: 1.2rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+#procesar-compra {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+}
+
+#procesar-compra:hover {
+    background: linear-gradient(135deg, #1e7e34 0%, #145523 100%);
+    box-shadow: 0 5px 15px rgba(40,167,69,0.3);
+}
+
+#generar-factura {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+}
+
+#generar-factura:hover {
+    background: linear-gradient(135deg, #5a6268 0%, #495057 100%);
+    box-shadow: 0 5px 15px rgba(108,117,125,0.3);
+}
+
+@media (max-width: 768px) {
+    .compra-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    #compra-cartera {
+        padding: 2rem 1rem;
+    }
+
+    .productos-seleccionados, .formulario-compra {
+        padding: 1.5rem;
+    }
+
+    #compra-cartera h2 {
+        font-size: 2rem;
+    }
+} 

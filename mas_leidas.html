@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Más Leídas - Autostar Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mas_leidas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 500px; /* Un poco más pequeño para un aspecto más compacto */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            overflow: hidden; /* Asegura que no se desborden los elementos */
+        }
+
+        .close-button {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .newsletter-form {
+            margin-top: 0.5rem; /* Menos margen superior, ya que el padding del modal ya lo maneja */
+        }
+
+        .newsletter-form h2 {
+            text-align: center;
+            color: #2c3e50; /* Un color más oscuro para el título */
+            margin-bottom: 1.2rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .newsletter-form p {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #7f8c8d; /* Un gris más suave para la descripción */
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem; /* Más espacio entre campos */
+        }
+
+        .form-group input {
+            width: calc(100% - 20px); /* Ajustar el ancho para padding */
+            padding: 12px 15px;
+            border: 1px solid #dfe6e9;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            color: #34495e;
+            background-color: #fcfcfc;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db; /* Un azul más vibrante al enfocar */
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #27ae60; /* Un verde más distintivo */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2ecc71; /* Verde más claro al pasar el ratón */
+            transform: translateY(-2px);
+        }
+
+        /* Estilo para el botón original, si aún se usa así */
+        .cta-button {
+            display: block;
+            margin: 3rem auto; /* Centrar el botón en la página */
+            padding: 1.2rem 2.5rem;
+            background-color: #007bff; /* Azul original, mantener consistencia o cambiar */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header class="visible">
+        <div class="container">
+            <div class="logo">
+                <img src="logos/logo.png" alt="AutoStar Premium Logo">
+                <h1>AutoStar Premium</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://www.facilpass.co/persona/?utm_source=mathilde&utm_medium=cpc&utm_campaign=alianza_carroya_apt_interacciones_cpc&utm_term=sto&utm_content=display">Facilpass</a></li>
+                            <li><a href="llantas_rines.html">Llantas y Rines</a></li>
+                            <li><a href="accesorios_autopartes.html">Accesorios y Autopartes</a></li>
+                            <li><a href="peritaje.html">Peritaje</a></li>
+                            <li><a href="tramites.html">Trámites</a></li>
+                            <li><a href="revision_tecnico_mecanica.html">Revisión Técnico Mecánica</a></li>
+                            <li><a href="servicios_complementarios.html">Servicios Complementarios</a></li>
+                            <li><a href="historia_vehicular.html">Historia Vehicular</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Buscar <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buscar_carro.html">Encontrar un Carro</a></li>
+                            <li><a href="buscar_moto.html">Encontrar una Moto</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Financiar <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="simular_credito.html">Simular Crédito</a></li>
+                            <li><a href="compra_cartera.html">Compra de Cartera</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Vender <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="vender_carro.html">Vender mi Carro</a></li>
+                            <li><a href="vender_moto.html">Vender mi Moto</a></li>
+                            <li><a href="tasacion.html">Tasación Gratuita</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Seguros <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="soat.html">Compra tu SOAT</a></li>
+                            <li><a href="todo_riesgo.html">Compra tu Todo Riesgo</a></li>
+                            <li><a href="https://www.sura.co/seguros">Bicis y scooter</a></li>
+                            <li><a href="https://www.suraenlinea.com/viajes/sura?codigoAsesor=188170&utm_source=%20CARROYA%20%20&utm_medium=MENU-HEAD&utm_capaign=SURA_VIAJES">Seguros de viajes</a></li>
+                            <li><a href="https://segurosdigitales.segurosalfa.com.co/?campaign=e3746c5c57af9a027e1da15a3ccfb00de50fd654d52b9b4c728e1a230dccd314&segment=alfa&utm_source=website&utm_medium=popup&utm_campaign=accidentespersonalesmarabierto_alfaweb_trafico_na&utm_term=marabierto&utm_content=aptrexsuperior">Accidentes personales</a></li>
+                            <li><a href="vehiculos_pesados.html">Vehículos pesados</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Noticias <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="lo_nuevo.html">Lo nuevo</a></li>
+                            <li><a href="para_compradores.html">Para compradores</a></li>
+                            <li><a href="para_conductores.html">Para conductores</a></li>
+                            <li><a href="mas_leidas.html" class="active">Las más leídas</a></li>
+                            <li><a href="guias_digitales.html">Guías digitales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="tarjeta_premium.html">Tarjeta Premium</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="mas-leidas" class="mas-leidas-section">
+            <div class="container">
+                <div class="mas-leidas-header">
+                    <h1>Artículos y Noticias Más Leídas</h1>
+                    <p class="tagline">Descubre lo que más interesa a nuestra comunidad automotriz</p>
+                </div>
+
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <img src="anuncios/tips para cuidar el motor.jpg" alt="Artículo 1">
+                        <div class="card-content">
+                            <h3>5 Consejos para Extender la Vida Útil de tu Motor</h3>
+                            <p class="date">Publicado: 15 de Octubre, 2024</p>
+                            <p>Aprende las mejores prácticas para mantener tu motor en óptimas condiciones y evitar costosas reparaciones.</p>
+                            <a href="https://www.mapfrebhd.com.do/particulares/seguros-de-auto/articulos/consejos-alargar-vida-util-auto/" class="cta-button">Leer Artículo</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <img src="anuncios/tendencia de autos electricos.png" alt="Artículo 2">
+                        <div class="card-content">
+                            <h3>Las Tendencias en Vehículos Eléctricos para 2025</h3>
+                            <p class="date">Publicado: 10 de Octubre, 2024</p>
+                            <p>Un vistazo a las innovaciones y modelos que dominarán el mercado de autos eléctricos el próximo año.</p>
+                            <a href="https://www.iea.org/reports/global-ev-outlook-2025/trends-in-electric-car-markets-2" class="cta-button">Leer Artículo</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <img src="anuncios/tips para elegir seguro de auto.jpg" alt="Artículo 3">
+                        <div class="card-content">
+                            <h3>Guía Definitiva para Elegir el Seguro de Auto Ideal</h3>
+                            <p class="date">Publicado: 01 de Octubre, 2024</p>
+                            <p>Comprende los tipos de cobertura y encuentra el seguro que mejor se adapte a tus necesidades y presupuesto.</p>
+                            <a href="https://www.odessaseguros.com/blog/guia-completa-para-elegir-el-mejor-seguro-de-auto" class="cta-button">Leer Artículo</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <img src="anuncios/mitos y realidade.jpg" alt="Artículo 4">
+                        <div class="card-content">
+                            <h3>Mitos y Realidades del Mantenimiento de Transmisiones Automáticas</h3>
+                            <p class="date">Publicado: 25 de Septiembre, 2024</p>
+                            <p>Desmentimos los mitos comunes y te damos los datos reales sobre el cuidado de tu transmisión.</p>
+                            <a href="https://www.clicars.com/blog/curiosidades/mitos-y-verdades-sobre-el-mantenimiento-de-coches-automaticos/?srsltid=AfmBOorNy-qtwBYpeSJEhvEsO2zNvmSdHfEqNo4mHgOGdd00qpbhQxYC" class="cta-button">Leer Artículo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="newsletter-cta">
+                    <h2>No te pierdas ninguna novedad</h2>
+                    <p>Suscríbete a nuestro boletín y recibe los artículos más populares directamente en tu bandeja de entrada.</p>
+                    <button class="cta-button" onclick="suscribirseBoletin()">Suscribirme</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal del formulario -->
+    <div id="newsletterModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="cerrarModal()">&times;</span>
+            <div class="newsletter-form">
+                <h2>Suscríbete a Nuestro Boletín</h2>
+                <p>Recibe las últimas noticias, ofertas especiales y actualizaciones sobre nuestros vehículos Toyota.</p>
+                
+                <form action="https://formsubmit.co/mauriciocardona402@gmail.com" method="POST">
+                    <!-- Configuración oculta -->
+                    <input type="hidden" name="_subject" value="Nueva suscripción al boletín de AutoStar Premium">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/confirmacion_envio.html">
+                    
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Correo electrónico" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Suscribirme</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Autostar Premium</h3>
+                <p>Tu destino para vehículos Toyota de calidad</p>
+                <p>No lo maneje, Maltratelo</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: autolote@autolostarpremium.com</p>
+                <p>Tel: (504) 9962-0194</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AutoStar Premium. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function suscribirseBoletin() {
+            document.getElementById('newsletterModal').style.display = 'block';
+        }
+
+        function cerrarModal() {
+            document.getElementById('newsletterModal').style.display = 'none';
+        }
+
+        // Cerrar el modal si se hace clic fuera de él
+        window.onclick = function(event) {
+            var modal = document.getElementById('newsletterModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html> 

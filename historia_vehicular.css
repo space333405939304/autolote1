@@ -1,0 +1,317 @@
+#historia-vehicular {
+    padding: 100px 0 60px 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('logos/fondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#historia-vehicular .main-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+#historia-vehicular .subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e44d26;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#historia-vehicular .description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.historia-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    color: #333;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e44d26;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #e44d26;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(228, 77, 38, 0.1);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: #e44d26;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #c73e1d;
+}
+
+.price-summary {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.price-summary h4 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.price-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #ddd;
+    font-weight: bold;
+    color: #333;
+}
+
+.ticket-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    padding: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ticket-header {
+    background: #e44d26;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+.ticket-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.ticket-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.ticket-date {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.ticket-body {
+    padding: 20px;
+}
+
+.ticket-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.ticket-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.ticket-section h4 {
+    color: #e44d26;
+    margin: 0 0 15px;
+    font-size: 1.2em;
+}
+
+.ticket-section p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.ticket-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ticket-section ul li {
+    padding: 5px 0;
+    color: #333;
+}
+
+.ticket-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e44d26;
+}
+
+.ticket-footer {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    border-top: 1px solid #eee;
+}
+
+.ticket-footer p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.ticket-footer p:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+@media print {
+    .historia-form-container {
+        display: none;
+    }
+    
+    .ticket-container {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .ticket-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+@media (max-width: 768px) {
+    .historia-form-container {
+        padding: 20px;
+        margin: 0 15px;
+    }
+
+    #historia-vehicular .main-title {
+        font-size: 2.2em;
+    }
+
+    .form-section h3 {
+        font-size: 1.2em;
+    }
+
+    .ticket-container {
+        margin: 20px;
+    }
+    
+    .ticket-header h3 {
+        font-size: 1.3em;
+    }
+    
+    .ticket-section h4 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .historia-form-container {
+        padding: 15px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group select {
+        padding: 10px;
+    }
+
+    .submit-button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+} 

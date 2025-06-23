@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simular Crédito - AutoStar Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="simular_credito.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logos/logo.png" alt="AutoStar Premium Logo">
+                <h1>AutoStar Premium</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://www.facilpass.co/persona/?utm_source=mathilde&utm_medium=cpc&utm_campaign=alianza_carroya_apt_interacciones_cpc&utm_term=sto&utm_content=display">Facilpass</a></li>
+                            <li><a href="llantas_rines.html">Llantas y Rines</a></li>
+                            <li><a href="accesorios_autopartes.html">Accesorios y Autopartes</a></li>
+                            <li><a href="peritaje.html">Peritaje</a></li>
+                            <li><a href="tramites.html">Trámites</a></li>
+                            <li><a href="revision_tecnico_mecanica.html">Revisión Técnico Mecánica</a></li>
+                            <li><a href="servicios_complementarios.html">Servicios Complementarios</a></li>
+                            <li><a href="historia_vehicular.html">Historia Vehicular</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Buscar <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buscar_carro.html">Encontrar un Carro</a></li>
+                            <li><a href="buscar_moto.html">Encontrar una Moto</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Financiar <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="simular_credito.html">Simular Crédito</a></li>
+                            <li><a href="compra_cartera.html">Compra de Cartera</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Vender <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="vender_carro.html">Vender mi Carro</a></li>
+                            <li><a href="vender_moto.html">Vender mi Moto</a></li>
+                            <li><a href="tasacion.html">Tasación Gratuita</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Seguros <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="soat.html">Compra tu SOAT</a></li>
+                            <li><a href="todo_riesgo.html">Compra tu Todo Riesgo</a></li>
+                            <li><a href="https://www.sura.co/seguros">Bicis y scooter</a></li>
+                            <li><a href="https://www.suraenlinea.com/viajes/sura?codigoAsesor=188170&utm_source=%20CARROYA%20%20&utm_medium=MENU-HEAD&utm_capaign=SURA_VIAJES">Seguros de viajes</a></li>
+                            <li><a href="https://segurosdigitales.segurosalfa.com.co/?campaign=e3746c5c57af9a027e1da15a3ccfb00de50fd654d52b9b4c728e1a230dccd314&segment=alfa&utm_source=website&utm_medium=popup&utm_campaign=accidentespersonalesmarabierto_alfaweb_trafico_na&utm_term=marabierto&utm_content=aptrexsuperior">Accidentes personales</a></li>
+                            <li><a href="vehiculos_pesados.html">Vehículos pesados</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Noticias <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="lo_nuevo.html">Lo nuevo</a></li>
+                            <li><a href="para_compradores.html">Para compradores</a></li>
+                            <li><a href="para_conductores.html">Para conductores</a></li>
+                            <li><a href="mas_leidas.html">Las más leídas</a></li>
+                            <li><a href="guias_digitales.html">Guías digitales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="tarjeta_premium.html">Tarjetas</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="simulador-credito">
+            <div class="container">
+                <h2 class="main-title">Simulador de Crédito Automotriz</h2>
+                <p class="section-description">Calcula tu cuota mensual y el total a pagar por el vehículo de tus sueños.</p>
+
+                <div class="simulador-content">
+                    <!-- Sección de Productos en el Carrito -->
+                    <div class="carrito-productos-card">
+                        <h3>Productos a Comprar</h3>
+                        <div id="lista-productos" class="lista-productos">
+                            <!-- Los productos agregados dinámicamente se mostrarán aquí -->
+                            <p>No hay productos en el carrito.</p>
+                        </div>
+                        <div class="totales-resumen">
+                            <p>Subtotal: <span id="subtotal">L. 0.00</span></p>
+                            <p>ISV (15%): <span id="isv">L. 0.00</span></p>
+                            <p class="total-final">Total: <span id="total">L. 0.00</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Simulación de Crédito -->
+                    <div class="formulario-credito-card">
+                        <h3>Detalles del Crédito</h3>
+                        <div class="form-group">
+                            <label for="nombre-cliente">Nombre del Cliente:</label>
+                            <input type="text" id="nombre-cliente" placeholder="Ingrese el nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion-cliente">Dirección:</label>
+                            <input type="text" id="direccion-cliente" placeholder="Ingrese la dirección" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="monto">Monto del Préstamo (L.):</label>
+                            <input type="number" id="monto" value="0" min="1" step="any" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="plazo">Plazo (meses):</label>
+                            <input type="number" id="plazo" value="0" min="12" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tasa">Tasa de Interés Anual (%):</label>
+                            <input type="number" id="tasa" value="12" step="0.1" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="metodo-financiamiento">Método de Financiamiento:</label>
+                            <select id="metodo-financiamiento">
+                                <option value="credito-bancario">Crédito Bancario</option>
+                                <option value="tarjeta">Tarjeta de Crédito</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="campo-numero-tarjeta" style="display: none;">
+                            <label for="numero-tarjeta">Número de Tarjeta:</label>
+                            <input type="text" id="numero-tarjeta" placeholder="Ingrese número de tarjeta">
+                        </div>
+
+                        <div class="form-group" id="campo-nombre-banco" style="display: none;">
+                            <label for="nombre-banco">Nombre del Banco:</label>
+                            <input type="text" id="nombre-banco" placeholder="Ingrese nombre del banco">
+                        </div>
+
+                        <button type="button" id="calcular-credito" class="cta-button">Calcular Crédito</button>
+
+                        <div class="resultados-credito">
+                            <h4>Resultados de la Simulación</h4>
+                            <p>Cuota Mensual: <span id="cuota-mensual">L. 0.00</span></p>
+                            <p>Interés Total: <span id="interes-total">L. 0.00</span></p>
+                            <p class="total-pagar">Total a Pagar: <span id="total-pagar">L. 0.00</span></p>
+                        </div>
+
+                        <button type="button" id="generar-factura" class="cta-button">Generar Factura</button>
+
+                        <div id="factura" class="factura-container" style="display: none;">
+                            <div class="factura-header">
+                                <img src="logos/logo.png" alt="AutoStar Premium Logo" class="factura-logo">
+                                <div class="factura-info">
+                                    <h3>Factura de Simulación</h3>
+                                    <div class="factura-fecha">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span id="factura-fecha"></span>
+                                    </div>
+                                    <div class="factura-numero">
+                                        <i class="fas fa-file-invoice"></i>
+                                        <span id="factura-numero"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="factura-cliente">
+                                <h4><i class="fas fa-user"></i> Información del Cliente</h4>
+                                <div class="factura-grid">
+                                    <div class="factura-item">
+                                        <span class="label">Nombre:</span>
+                                        <span class="value" id="factura-nombre"></span>
+                                    </div>
+                                    <div class="factura-item">
+                                        <span class="label">Dirección:</span>
+                                        <span class="value" id="factura-direccion"></span>
+                                    </div>
+                                    <div class="factura-item">
+                                        <span class="label">Método de Financiamiento:</span>
+                                        <span class="value" id="factura-metodo"></span>
+                                    </div>
+                                    <div class="factura-item">
+                                        <span class="label">Banco:</span>
+                                        <span class="value" id="factura-banco"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="factura-productos">
+                                <h4><i class="fas fa-shopping-cart"></i> Productos Seleccionados</h4>
+                                <div id="factura-lista-productos"></div>
+                            </div>
+
+                            <div class="factura-detalles-credito">
+                                <h4><i class="fas fa-calculator"></i> Detalles del Crédito</h4>
+                                <div class="factura-grid">
+                                    <div class="factura-item">
+                                        <span class="label">Monto del Préstamo:</span>
+                                        <span class="value" id="factura-monto-prestamo"></span>
+                                    </div>
+                                    <div class="factura-item">
+                                        <span class="label">Plazo:</span>
+                                        <span class="value" id="factura-plazo"></span>
+                                    </div>
+                                    <div class="factura-item">
+                                        <span class="label">Tasa de Interés Anual:</span>
+                                        <span class="value" id="factura-tasa"></span>
+                                    </div>
+                                    <div class="factura-item">
+                                        <span class="label">Cuota Mensual:</span>
+                                        <span class="value" id="factura-cuota"></span>
+                                    </div>
+                                    <div class="factura-item">
+                                        <span class="label">Interés Total:</span>
+                                        <span class="value" id="factura-interes-total"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="factura-totales">
+                                <h4><i class="fas fa-file-invoice-dollar"></i> Totales</h4>
+                                <div class="factura-grid">
+                                    <div class="factura-item">
+                                        <span class="label">Subtotal:</span>
+                                        <span class="value" id="factura-subtotal"></span>
+                                    </div>
+                                    <div class="factura-item">
+                                        <span class="label">ISV (15%):</span>
+                                        <span class="value" id="factura-isv"></span>
+                                    </div>
+                                    <div class="factura-item total">
+                                        <span class="label">Total a Pagar:</span>
+                                        <span class="value" id="factura-total"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="factura-footer">
+                                <p><i class="fas fa-info-circle"></i> Esta es una simulación de crédito. Los términos finales pueden variar según la aprobación del banco.</p>
+                                <p><i class="fas fa-shield-alt"></i> Todos los precios incluyen garantía y servicio post-venta.</p>
+                            </div>
+
+                            <div class="factura-firmas">
+                                <div class="firma-item">
+                                    <div class="linea-firma"></div>
+                                    <p>Firma del Cliente</p>
+                                </div>
+                                <div class="firma-item">
+                                    <div class="linea-firma"></div>
+                                    <p>AutoStar Premium</p>
+                                </div>
+                            </div>
+
+                            <div class="factura-acciones">
+                                <button class="cta-button" id="btn-imprimir">
+                                    <i class="fas fa-print"></i> Imprimir Factura
+                                </button>
+                                <button class="cta-button" id="btn-email">
+                                    <i class="fas fa-envelope"></i> Enviar por Email
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AutoStar Premium</h3>
+                <p>Tu destino para vehículos Toyota de calidad</p>
+                <p>No lo maneje, Maltratelo</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: autolote@autolostarpremium.com</p>
+                <p>Tel: (504) 9962-0194</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AutoStar Premium. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="simular_credito.js"></script>
+</body>
+</html> 
